@@ -21,6 +21,6 @@ WORKDIR /home/aur
 # Clone the yay repository and build it
 RUN git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
-    makepkg -si --noconfirm && \
-    cd .. && \
-    rm -rf yay
+    makepkg -si --noconfirm
+
+rm -rf /hom/aur
