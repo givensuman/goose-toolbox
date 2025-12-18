@@ -1,5 +1,10 @@
-FROM archlinux:latest
-LABEL maintainer="givensuman"
+FROM quay.io/toolbx/arch-toolbox:latest
+LABEL com.github.containers.toolbox="true" \
+      name="dune-toolbox" \
+      version="base" \
+      usage="This image is meant to be used within Dune OS" \
+      summary="Default image run in Dune OS toolboxes" \
+      maintainer="givensuman <givensuman@duck.com>"
 
 # Update the system and install git
 RUN pacman -Syu --noconfirm && \
