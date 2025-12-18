@@ -6,7 +6,7 @@
 
 ## About
 
-This is a custom Arch Linux image preconfigured with the [yay](https://github.com/jguer/yay) AUR utility. It is set to act as a mutable overlay for the otherwise immutable [Dune OS](https://github.com/givensuman/dune-os).
+This is a custom Fedora image comparable to [Ultramarine Linux](https://ultramarine-linux.org). It is set to act as a mutable overlay for the otherwise immutable [Dune OS](https://github.com/givensuman/dune-os).
 
 ## Installation
 

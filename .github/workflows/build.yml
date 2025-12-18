@@ -41,6 +41,11 @@ jobs:
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
 
+      - name: Lint build script
+        run: |
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          shellcheck build.sh || { echo "Shellcheck failed"; exit 1; }
+
       # Generate additional build tags
       - name: Generate tags
         id: generate-tags
@@ -67,7 +72,7 @@ jobs:
           fi
 
           echo "TAGS=${TAGS[*]}" >> $GITHUB_OUTPUT
-      
+
       # @echo version
       - name: Get current version
         id: labels

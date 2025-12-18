@@ -1,4 +1,4 @@
-FROM quay.io/toolbx/arch-toolbox:latest
+FROM docker.io/library/fedora:latest
 LABEL com.github.containers.toolbox="true" \
       name="dune-toolbox" \
       version="base" \
@@ -6,25 +6,8 @@ LABEL com.github.containers.toolbox="true" \
       summary="Default image run in Dune OS toolboxes" \
       maintainer="givensuman <givensuman@duck.com>"
 
-# Update the system and install git
-RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm git base-devel && \
-    pacman -Scc --noconfirm
+COPY build.sh /
+RUN chmod +x /build.sh;
+RUN /build.sh;
 
-RUN useradd -m -G wheel aur && \
-    # Allow the 'aur' user to run sudo without a password
-    echo "aur ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/aur
-
-USER aur
-WORKDIR /home/aur
-
-# Clone the yay repository and build it
-RUN git clone https://aur.archlinux.org/yay.git && \
-    cd yay && \
-    makepkg -si --noconfirm
-
-USER root
-WORKDIR /
-RUN rm -rf /home/aur
-
-USER aur
+RUN dnf clean all;
