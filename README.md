@@ -24,7 +24,25 @@ then pull 'er down:
 podman pull ghcr.io/givensuman/dune-toolbox:stable
 ```
 
-This image is meant to be used with the [Toolbx](https://github.com/containers/toolbox) utility. To set this as your default toolbox, edit `$XDG_CONFIG_HOME/containers/toolbox.conf` to contain the following:
+As used in Dune OS, this replaces the `toolbox` command shipped with Fedora. Run `toolbox create` to build the first container specified in `$XDG_CONFIG_HOME/dune-os/toolbox.ini` meeting the [Distrobox assemble](https://distrobox.it/usage/distrobox-assemble/) specification (or this image by default). Generally speaking, Distrobox is more powerful and allows us better control of the resulting development environment.
+
+To extend this image into your own `toolbox.ini`, use the "include" key:
+
+```bash
+# import manifest
+curl https://github.com/givensuman/dune-toolbox/raw/main/toolbox.ini > $XDG_CONFIG_HOME/dune-os/toolbox.ini
+```
+
+```ini
+[my-toolbox]
+include="dune-toolbox"
+additional_packages="tmux neovim"
+
+[dune-toolbox]
+# ... imported manifest
+```
+
+This image is can also be used with the [Toolbx](https://github.com/containers/toolbox) utility. To set this as your default toolbox, edit `$XDG_CONFIG_HOME/containers/toolbox.conf` to contain the following:
 
 ```ini
 [general]

@@ -6,8 +6,8 @@ LABEL com.github.containers.toolbox="true" \
       summary="Default image run in Dune OS toolboxes" \
       maintainer="givensuman <givensuman@duck.com>"
 
-COPY build.sh /
+COPY /scripts/build.sh /
 RUN chmod +x /build.sh;
 RUN /build.sh;
 
-RUN dnf clean all;
+RUN dnf5 clean all;
