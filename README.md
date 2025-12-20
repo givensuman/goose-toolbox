@@ -24,25 +24,14 @@ then pull 'er down:
 podman pull ghcr.io/givensuman/dune-toolbox:stable
 ```
 
-There is also an install script:
+As used in Dune OS, this acts as the default Distrobox container. Run `distrobox create` to build. Generally speaking, Distrobox is more powerful and allows us better control of the resulting development environment.
 
-```bash
-git clone https://github.com/givensuman/dune-toolbox
-cd dune-toolbox && chmod +x ./scripts/install.sh
-./scripts/install.sh
+You can set this as your default as well by mimicking Dune OS's `/usr/share/distrobox/distrobox.conf`:
+
+```conf
+container_image_default="ghcr.io/givensuman/dune-toolbox"
+container_name_default="dune-toolbox"
 ```
-
-As used in Dune OS, this replaces the `toolbox` command shipped with Fedora. Run `toolbox create` to build the first container specified in `$HOME/.config/dune-toolbox/toolbox.ini` meeting the [Distrobox assemble](https://distrobox.it/usage/distrobox-assemble/) specification, or this default:
-
-```ini
-[dune-toolbox]
-image="ghcr.io/givensuman/dune-toolbox:stable"
-volume="/home/linuxbrew:/home/linuxbrew:rslave"
-volume="/usr/bin/:/usr/local/bin"
-entry=false
-```
-
-Generally speaking, Distrobox is more powerful and allows us better control of the resulting development environment.
 
 This image is can also be used with the [Toolbx](https://github.com/containers/toolbox) utility. To set this as your default toolbox, edit `$HOME/.config/containers/toolbox.conf` to contain the following:
 

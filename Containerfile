@@ -6,7 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       summary="Default image run in Dune OS toolboxes" \
       maintainer="givensuman <givensuman@duck.com>"
 
-COPY /scripts/build.sh /
+COPY build.sh /
 RUN chmod +x /build.sh;
 RUN /build.sh;
 
