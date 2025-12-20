@@ -3,7 +3,7 @@
 # Determine the configuration file location
 if [ -f "$HOME/.config/dune-toolbox/toolbox.ini" ]; then
   INI_FILE="$HOME/.config/dune-toolbox/toolbox.ini"
-elif [ -f /etc/dune-os/toolbox.ini ]; then
+elif [ -f "/etc/dune-toolbox/toolbox.ini" ]; then
   INI_FILE="/etc/dune-toolbox/toolbox.ini"
 else
   echo "Configuration file not found at /etc/dune-toolbox/toolbox.ini or ~/.config/dune-toolbox/toolbox.ini"
@@ -25,7 +25,11 @@ create)
   ;;
 enter)
   shift
-  distrobox enter "$SECTION" "$@"
+  distrobox enter "$SECTION" -e "$@"
+  ;;
+replace)
+  shift
+  distrobox assemble --replace --file "$INI_FILE"
   ;;
 *)
   echo "Usage: $0 <command>"
