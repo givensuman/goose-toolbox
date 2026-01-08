@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/givensuman/goose-linux/blob/main/assets/goose.png" />
+  <img src="https://github.com/givensuman/goose-linux/blob/main/assets/goose.png" width="250" />
 </div>
 
 <div align="center">
