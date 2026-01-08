@@ -1,6 +1,8 @@
 <div align="center">
   <img src="https://github.com/givensuman/goose-linux/blob/main/assets/goose.png" />
+</div>
 
+<div align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/givensuman/goose-toolbox/build.yml?labelColor=purple" />
 </div>
 
