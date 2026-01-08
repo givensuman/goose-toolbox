@@ -41,7 +41,3 @@ This image is can also be used with the [Toolbx](https://github.com/containers/t
 [general]
 image = "ghcr.io/givensuman/goose-toolbox:stable"
 ```
-
-<div align="center">
-  <img src="https://github.com/givensuman/goose-linux/blob/main/assets/banner.png" />
-</div>
