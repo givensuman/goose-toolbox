@@ -1,9 +1,9 @@
 FROM docker.io/library/fedora:latest
 LABEL com.github.containers.toolbox="true" \
-      name="dune-toolbox" \
+      name="goose-toolbox" \
       version="base" \
-      usage="This image is meant to be used within Dune OS" \
-      summary="Default image run in Dune OS toolboxes" \
+      usage="This image is meant to be used within goose linux" \
+      summary="default image run in goose linux toolboxes" \
       maintainer="givensuman <givensuman@duck.com>"
 
 COPY build.sh /
